@@ -8,6 +8,7 @@
 <body>
     
     <script src="assets/js/three.js"></script>
+    <script src="assets/js/OrbitControls.js"></script>
     <script>
         var scene = new THREE.Scene();
         var camera = new THREE.PerspectiveCamera( 
@@ -35,12 +36,12 @@
             camera.updateProjectionMatrix();
         })
 
+        control = new THREE.OrbitControls( camera, renderer.domElement );
 
+        // create the shape
         var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        var material = new THREE.MeshBasicMaterial( {
-            color: 0x2194ce,
-            wireframe: true
-        } );
+
+        var material = new THREE.MeshBasicMaterial( {color: 0x0000ff, wireframe: true} );
         var cube = new THREE.Mesh( geometry, material );
         scene.add( cube );
 
@@ -48,8 +49,8 @@
   
         // game logic
         var update = function (){
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.005;
+            // cube.rotation.x += 0.01;
+            // cube.rotation.y += 0.005;
         };
 
         // draw scene 
